@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/nagar/IdeaProjects/AppiumFrameDesign">
+        <classes>
+            <class name="FrameworkDesign.EcommerceTest1">
+                <methods>
+                    <include name="FillForm_ErrorValidation"/>
+                    <include name="FillForm_PositiveFlow"/>
+                </methods>
+            </class>
+            <class name="FrameworkDesign.EcommerceTest2">
+                <methods>
+                    <include name="FillForm"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
