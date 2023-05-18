@@ -10,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,23 +26,19 @@ public class BaseTest {
 	public AndroidDriver driver;
 	public FormPage formpage;
 	@BeforeClass(alwaysRun = true)
-	public void ConfigureAppium() throws MalformedURLException, InterruptedException {
-
+	@Parameters({"deviceName", "udid","platformVersion", "portNumber"})
+	public void ConfigureAppium(String deviceName, String udid, String platformVersion, String portNumber) throws MalformedURLException, InterruptedException {
 		UiAutomator2Options options = new UiAutomator2Options();
-
-
-		options.setDeviceName("NewEmulator");   //this is for emulator congig
+		options.setDeviceName(deviceName);   //this is for emulator congig
 		//options.setDeviceName("SampleDevice");
-
-
-		options.setChromedriverExecutable("C:\\Users\\nagar\\Downloads\\chromedriver_win32\\chromedriver.exe");
-
-		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
-
+		options.setUdid(udid);
+		options.setPlatformVersion(platformVersion);
+		//options.setChromedriverExecutable("C:\\Users\\nagar\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\ApiDemos-debug.apk");
+		//options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
 		options.setCapability("uiautomator2ServerInstallTimeout","6000");
-
 		//driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options); //for appium above version 2
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);////for appium below version 2
+		driver = new AndroidDriver(new URL("http://127.0.0.1:"+portNumber+"/wd/hub"), options);////for appium below version 2
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		//Thread.sleep(5000);
 		formpage = new FormPage(driver);

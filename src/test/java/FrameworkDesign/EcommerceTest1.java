@@ -8,11 +8,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class EcommerceTest1 extends BaseTest{
-//    @BeforeMethod
-//    public void preSetup() throws InterruptedException {
-//        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore/.SplashActivity");
-//        driver.startActivity(activity);
-//    }
+    @BeforeMethod
+    public void preSetup() throws InterruptedException {
+        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore/.SplashActivity");
+        driver.startActivity(activity);
+    }
 
     @Test
     public void FillForm_ErrorValidation() throws InterruptedException
