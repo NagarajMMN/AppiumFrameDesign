@@ -2,6 +2,7 @@ package FrameworkDesign;
 
 import FrameworkDesignPOM.CartPage;
 import FrameworkDesignPOM.ProductCatalogue;
+import com.aventstack.extentreports.ExtentTest;
 import org.testng.AssertJUnit;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -14,8 +15,7 @@ public class EcommerceTest2 extends BaseTest {
 
     @Test()
     public void FillForm() throws InterruptedException {
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       // ExtentTest test=extent.createtest("Test2")
 
     formpage.setNameField("Nagaraj");
     formpage.selectGender("male");
@@ -30,9 +30,6 @@ public class EcommerceTest2 extends BaseTest {
     AssertJUnit.assertEquals(totalSum, displayFormattedSum);
     //cartPage.acceptTermsConditions();
     cartPage.submitOrder();
-
-
-
 
 }
 

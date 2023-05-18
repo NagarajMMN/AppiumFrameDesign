@@ -31,7 +31,7 @@ public class EcommerceTest1 extends BaseTest{
     @Test
     public void FillForm_PositiveFlow() throws InterruptedException
     {
-        driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Rahul Shetty");
+        driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Rider");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
         driver.findElement(By.id("android:id/text1")).click();
