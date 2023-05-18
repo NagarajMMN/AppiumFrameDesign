@@ -33,18 +33,6 @@ public class EcommerceTest2 extends BaseTest {
 
 
 
-//    Thread.sleep(6000);
-//    Set<String> contexts =driver.getContextHandles();
-//    for(String contextName :contexts)
-//    {
-//        System.out.println(contextName);
-//    }
-//
-//    driver.context("WEBVIEW_com.androidsample.generalstore");//chrome driver
-//    driver.findElement(By.name("q")).sendKeys("Nagaraj");
-//    driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
-//    driver.pressKey(new KeyEvent(AndroidKey.BACK));
-//    driver.context("NATIVE_APP");
 
 }
 
