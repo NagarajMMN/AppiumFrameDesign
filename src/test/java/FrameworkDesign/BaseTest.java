@@ -34,7 +34,7 @@ public class BaseTest {
 
 		options.setChromedriverExecutable("C:\\Users\\nagar\\Downloads\\chromedriver_win32\\chromedriver.exe");
 
-		options.setApp("C:\\Users\\nagar\\IdeaProjects\\AppiumFrameDesign\\src\\main\\resources\\resources\\General-Store.apk");
+		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
 
 		options.setCapability("uiautomator2ServerInstallTimeout","6000");
 

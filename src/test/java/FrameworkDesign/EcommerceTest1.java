@@ -11,8 +11,6 @@ public class EcommerceTest1 extends BaseTest{
 //    @BeforeMethod
 //    public void preSetup() throws InterruptedException {
 //        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore/.SplashActivity");
-////        activity.setAppWaitPackage("com.androidsample.generalstore");
-////        activity.setAppWaitActivity("com.androidsample.generalstore.MainActivity");
 //        driver.startActivity(activity);
 //    }
 
