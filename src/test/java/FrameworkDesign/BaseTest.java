@@ -3,9 +3,11 @@ package FrameworkDesign;
 import FrameworkDesignPOM.FormPage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -67,5 +69,12 @@ public class BaseTest {
 
 		return data;
 
+	}
+
+	public String getScreenshotPath(String testCaseName, AppiumDriver driver) throws IOException {
+		File source = driver.getScreenshotAs(OutputType.FILE);
+		String destinationFile = System.getProperty("user.dir")+"//reports//reports"+testCaseName+".png";
+		FileUtils.copyFile(source, new File(destinationFile));
+		return destinationFile;
 	}
 }

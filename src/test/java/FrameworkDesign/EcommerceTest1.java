@@ -25,7 +25,7 @@ public class EcommerceTest1 extends BaseTest{
         driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
         String toastMessage = driver.findElement(By.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
-        AssertJUnit.assertEquals(toastMessage,"Please enter your name");
+        AssertJUnit.assertEquals(toastMessage,"Please enter your namee");
     }
 
     @Test
