@@ -8,18 +8,18 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class EcommerceTest2 extends BaseTest {
+public class EcommerceTest3DatadrivenMethod extends BaseTest {
 
 
 
-    @Test()
-    public void FillForm() throws InterruptedException {
+    @Test(dataProvider = "getData")
+    public void FillForm(String name,String gender,String country) throws InterruptedException {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        formpage.setNameField("Nagaraj");
-        formpage.selectGender("male");
-        formpage.setCountrySelection("Angola");
+        formpage.setNameField(name);
+        formpage.selectGender(gender);
+        formpage.setCountrySelection(country);
     formpage.submitForm();
     ProductCatalogue productCatalogue= formpage.alertMessage();
     productCatalogue.addItemtoCartbyIndex(0);
@@ -90,6 +90,10 @@ public class EcommerceTest2 extends BaseTest {
 //    driver.context("NATIVE_APP");
 
 }
+    @DataProvider
+    public Object[][] getData(){
+        return new Object [] []{{"Nagaraj","male","Angola"}};
+    }
 
 
 }

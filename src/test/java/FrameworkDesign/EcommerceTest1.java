@@ -8,13 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class EcommerceTest1 extends BaseTest{
-    @BeforeMethod
-    public void preSetup() throws InterruptedException {
-        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore.MainActivity");
-        activity.setAppWaitPackage("com.androidsample.generalstore");
-        activity.setAppWaitActivity("com.androidsample.generalstore.MainActivity");
-        driver.startActivity(activity);
-    }
+//    @BeforeMethod
+//    public void preSetup() throws InterruptedException {
+//        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore/.SplashActivity");
+////        activity.setAppWaitPackage("com.androidsample.generalstore");
+////        activity.setAppWaitActivity("com.androidsample.generalstore.MainActivity");
+//        driver.startActivity(activity);
+//    }
 
     @Test
     public void FillForm_ErrorValidation() throws InterruptedException
@@ -27,7 +27,7 @@ public class EcommerceTest1 extends BaseTest{
         driver.findElement(By.xpath("//android.widget.TextView[@text='Argentina']")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
         String toastMessage = driver.findElement(By.xpath("(//android.widget.Toast)[1]")).getAttribute("name");
-        AssertJUnit.assertEquals(toastMessage,"Please your name");
+        AssertJUnit.assertEquals(toastMessage,"Please enter your name");
     }
 
     @Test
