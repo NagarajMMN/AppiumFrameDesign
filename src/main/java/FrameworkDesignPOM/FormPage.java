@@ -1,6 +1,7 @@
 package FrameworkDesignPOM;
 
 import Utils.AndroidActions;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,10 @@ public class FormPage extends AndroidActions {
     public void setNameField(String name){
         nameField.sendKeys(name);
         driver.hideKeyboard();
+    }
+    public void setActivity(){
+        Activity activity = new Activity("com.androidsample.generalstore", "com.androidsample.generalstore/.SplashActivity");
+        driver.startActivity(activity);
     }
     public void selectGender(String gender){
         if (gender.contains("male")){

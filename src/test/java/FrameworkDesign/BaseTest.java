@@ -1,14 +1,22 @@
 package FrameworkDesign;
 
 import FrameworkDesignPOM.FormPage;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.apache.commons.io.FileUtils;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
 
 public class BaseTest {
 
@@ -44,5 +52,20 @@ public class BaseTest {
 		Thread.sleep(5000);
 		driver.quit();
 		//service.stop();
+	}
+
+
+	public List<HashMap<String, String>> getJsonData(String jsonFilePath) throws IOException {
+//System.getProperty("user.dir")+"//src//test//java//org//rahulshettyacademy//testData//eCommerce.json"
+		// conver json file content to json string
+		String jsonContent = FileUtils.readFileToString(new File(jsonFilePath),StandardCharsets.UTF_8);
+
+		ObjectMapper mapper = new ObjectMapper();
+		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
+				new TypeReference<List<HashMap<String, String>>>() {
+				});
+
+		return data;
+
 	}
 }
