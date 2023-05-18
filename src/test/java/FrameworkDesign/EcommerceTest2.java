@@ -13,7 +13,7 @@ public class EcommerceTest2 extends BaseTest {
 
 
 
-    @Test()
+    @Test(groups = {"smoke"})
     public void FillForm() throws InterruptedException {
        // ExtentTest test=extent.createtest("Test2")
 

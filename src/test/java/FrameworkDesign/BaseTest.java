@@ -24,7 +24,7 @@ public class BaseTest {
 
 	public AndroidDriver driver;
 	public FormPage formpage;
-	@BeforeClass
+	@BeforeClass(alwaysRun = true)
 	public void ConfigureAppium() throws MalformedURLException, InterruptedException {
 
 		UiAutomator2Options options = new UiAutomator2Options();
@@ -49,7 +49,7 @@ public class BaseTest {
 
 
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void TearDown() throws InterruptedException {
 		Thread.sleep(5000);
 		driver.quit();
