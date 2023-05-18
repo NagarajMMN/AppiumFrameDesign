@@ -68,6 +68,46 @@
 
 
     </dependencies>
+    <profiles>
+        <profile>
+            <id>Regression</id>
+            <build>
+            <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testNGSuites/testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+            </pluginManagement>
+            </build>
+        </profile>
+        <profile>
+            <id>smoke</id>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <version>3.1.0</version>
+                            <configuration>
+                                <suiteXmlFiles>
+                                    <suiteXmlFile>testNGSuites/testng2.xml</suiteXmlFile>
+                                </suiteXmlFiles>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
