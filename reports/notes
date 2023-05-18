@@ -1,0 +1,4 @@
+Commands to run the Test file from the CMD
+mvn test -Psmoke -e
+mvn test -Psmoke -X
+mvn test -Psmoke
