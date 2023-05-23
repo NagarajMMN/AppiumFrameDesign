@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="running test">
+<suite parallel="methods" thread-count="2" name="All Test Suite">
+    <test parallel="methods" verbose="2" preserve-order="true" name="running test">
         <parameter name="deviceName" value="Galaxy A30s"></parameter>
         <parameter name="udid" value="RZ8MC09NLNK"></parameter>
         <parameter name="platformVersion" value="11"></parameter>
@@ -14,7 +14,7 @@
             </class>
         </classes>
     </test>
-    <test verbose="2" preserve-order="true" name="run test">
+    <test parallel="methods" verbose="2" preserve-order="true" name="run test">
         <parameter name="deviceName" value="emulator"></parameter>
         <parameter name="udid" value="emulator-5554"></parameter>
         <parameter name="platformVersion" value="11"></parameter>
