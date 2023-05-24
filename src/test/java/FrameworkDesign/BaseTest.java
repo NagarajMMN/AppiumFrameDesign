@@ -8,9 +8,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,9 +24,11 @@ public class BaseTest {
 
 	public AndroidDriver driver;
 	public FormPage formpage;
-	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	@Parameters({"deviceName", "udid","platformVersion", "portNumber"})
-	public void ConfigureAppium(String deviceName, String udid, String platformVersion, String portNumber) throws MalformedURLException, InterruptedException {
+	public void ConfigureAppium(String deviceName, String udid, String platformVersion, String portNumber, ITestContext context) throws MalformedURLException, InterruptedException {
+
+		String testName = context.getCurrentXmlTest().getName();
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName(deviceName);   //this is for emulator congig
 		//options.setDeviceName("SampleDevice");
@@ -37,8 +38,13 @@ public class BaseTest {
 		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\ApiDemos-debug.apk");
 		//options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
 		options.setCapability("uiautomator2ServerInstallTimeout","6000");
-		//driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options); //for appium above version 2
-		driver = new AndroidDriver(new URL("http://127.0.0.1:"+portNumber+"/wd/hub"), options);////for appium below version 2
+		//driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options); //for appium above version 2
+		//driver = new AndroidDriver(new URL("http://127.0.0.1:"+portNumber+"/wd/hub"), options);////for appium below version 2
+
+		String appiumServerUrl = "http://127.0.0.1:" + portNumber + "/wd/hub";
+
+		driver = new AndroidDriver(new URL(appiumServerUrl), options);
+
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		//Thread.sleep(5000);
 		formpage = new FormPage(driver);
@@ -46,8 +52,8 @@ public class BaseTest {
 
 
 
-	@AfterClass(alwaysRun = true)
-	public void TearDown() throws InterruptedException {
+	@AfterMethod(alwaysRun = true)
+	public void TearDown(ITestContext context) throws InterruptedException {
 		Thread.sleep(5000);
 		driver.quit();
 		//service.stop();
