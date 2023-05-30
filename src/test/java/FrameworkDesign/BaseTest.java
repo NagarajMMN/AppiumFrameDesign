@@ -35,13 +35,13 @@ public class BaseTest {
 		options.setUdid(udid);
 		options.setPlatformVersion(platformVersion);
 		//options.setChromedriverExecutable("C:\\Users\\nagar\\Downloads\\chromedriver_win32\\chromedriver.exe");
-		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\ApiDemos-debug.apk");
-		//options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
+		//options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\ApiDemos-debug.apk");
+		options.setApp(System.getProperty("user.dir")+"\\src\\main\\resources\\resources\\General-Store.apk");
 		options.setCapability("uiautomator2ServerInstallTimeout","6000");
 		//driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options); //for appium above version 2
 		//driver = new AndroidDriver(new URL("http://127.0.0.1:"+portNumber+"/wd/hub"), options);////for appium below version 2
 
-		String appiumServerUrl = "http://127.0.0.1:" + portNumber + "/wd/hub";
+		String appiumServerUrl = "http://127.0.0.1:" + portNumber;
 
 		driver = new AndroidDriver(new URL(appiumServerUrl), options);
 
