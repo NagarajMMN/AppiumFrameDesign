@@ -1,5 +1,5 @@
-Update Maven Dependencies automatically
-        mvn versions:display-dependency-updates
-        mvn versions:display-plugin-updates
-        mvn versions:use-next-releases
-    run this commands in terminal of intellij IDE
+1)  Update Maven Dependencies automatically
+            mvn versions:display-dependency-updates
+            mvn versions:display-plugin-updates
+            mvn versions:use-next-releases
+        run this commands in terminal of intellij IDE
